@@ -6,4 +6,9 @@
 
 #pragma once
 
-#include <pwd.h>
+static bool home_get_dir(char *dir, size_t size)
+{
+	snprintf(dir, size, "/");
+
+	return true;
+}

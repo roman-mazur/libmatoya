@@ -6,9 +6,18 @@
 
 #pragma once
 
-static struct passwd {
-	const char *pw_dir;
-} __HOME = {"/"};
+#include <pwd.h>
 
-#define getuid() 0
-#define getpwuid(uid) (&__HOME)
+static bool home_get_dir(char *dir, size_t size)
+{
+	const struct passwd *pw = getpwuid(getuid());
+
+	if (pw) {
+		snprintf(dir, size, "%s", pw->pw_dir);
+		return true;
+	}
+
+	MTY_Log("'getpwuid' failed with errno %d", errno);
+
+	return false;
+}
