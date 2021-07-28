@@ -10,10 +10,10 @@
 
 struct ps4_state {
 	bool bluetooth;
-	uint8_t timestamp[2];
 	uint8_t gyro[6];
 	uint8_t accel[6];
 	uint8_t touchpad[10];
+	uint8_t timestamp[2];
 };
 
 

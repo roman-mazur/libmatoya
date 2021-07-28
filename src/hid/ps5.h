@@ -13,8 +13,8 @@ struct ps5_state {
 	bool bluetooth;
 	uint8_t gyro[6];
 	uint8_t accel[6];
-	uint8_t timestamp[4];
 	uint8_t touchpad[9];
+	uint8_t timestamp[4];
 };
 
 static void ps5_rumble(struct hid_dev *device, uint16_t low, uint16_t high)
